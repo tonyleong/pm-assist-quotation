@@ -197,10 +197,9 @@
 <body>
   <div class="wrap">
     <div class="toolbar no-print">
-      <p class="hint">Quotation 2026007 for Kevin. Download HTML, or print and choose Save as PDF.</p>
+      <p class="hint">Quotation 2026007 for Kevin. Print and choose Save as PDF if you need a file.</p>
       <div class="actions">
-        <button type="button" class="primary" id="btnDownload">Download HTML</button>
-        <button type="button" id="btnPrint">Print / Save as PDF</button>
+        <button type="button" class="primary" id="btnPrint">Print / Save as PDF</button>
       </div>
     </div>
 
@@ -410,64 +409,65 @@
       </div>
 
       <h2>3. Not in this price</h2>
+      <p>Currency for this whole quote, including the vendor bills below, is <strong>Malaysian Ringgit (RM)</strong>. Vendor list prices are in USD; figures below are shown in RM at about USD 1 = RM 4.20, for discussion only.</p>
       <ul class="plain">
         <li>Later modules: maintenance tickets, complaints, work orders, analytics.</li>
         <li>Unticked items in section 1 (after MVP) are not in the total until you tick them.</li>
         <li>Native iOS / Android apps. Announcements as a content module. Hai Kah Lang ERP or other third-party systems.</li>
-        <li>Monthly / yearly vendor bills below — you pay those vendors directly. Figures are for discussion (USD shown in RM at about 4.20), not a locked ops contract.</li>
+        <li>Monthly / yearly vendor bills below — you pay those vendors directly. Not a locked ops contract.</li>
       </ul>
       <p>Development and the first ~2 months live should be low use, so database and login stay on <strong>Supabase Free</strong>. Move to Pro when the live team depends on it, data goes past 500 MB, or you need daily backups and no pause.</p>
       <table class="ops">
         <thead>
           <tr>
-            <th>Paid to vendors, not in RM 100,000</th>
-            <th>Development</th>
-            <th>First ~2 months</th>
-            <th>Steady go-live</th>
+            <th>Paid to vendors, not in the Phase 1 build</th>
+            <th>Development (RM)</th>
+            <th>First ~2 months (RM)</th>
+            <th>Steady go-live (RM)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>App hosting</strong> — Vercel. Pro when the client domain is live.</td>
-            <td>0</td>
-            <td>85 / month</td>
-            <td>85 / month</td>
+            <td>RM 0</td>
+            <td>RM 85 / month</td>
+            <td>RM 85 / month</td>
           </tr>
           <tr>
             <td><strong>Database + login</strong> — Supabase Postgres and Auth. Free pauses after 1 week of no activity.</td>
-            <td>0 (Free)</td>
-            <td>0 (Free)</td>
-            <td>105 / month (Pro)</td>
+            <td>RM 0 (Free)</td>
+            <td>RM 0 (Free)</td>
+            <td>RM 105 / month (Pro)</td>
           </tr>
           <tr>
             <td><strong>File storage</strong> — Google Cloud Storage for SOP PDFs, scans and originals.</td>
-            <td>0–20</td>
-            <td>10–50 / month</td>
-            <td>10–50 / month</td>
+            <td>RM 0–20</td>
+            <td>RM 10–50 / month</td>
+            <td>RM 10–50 / month</td>
           </tr>
           <tr>
             <td><strong>Google AI</strong> — answers, document search, OCR pages.</td>
-            <td>0–50</td>
-            <td>50–150 / month</td>
-            <td>200–600 / month</td>
+            <td>RM 0–50</td>
+            <td>RM 50–150 / month</td>
+            <td>RM 200–600 / month</td>
           </tr>
           <tr>
             <td><strong>Domain</strong> — billed <strong>once a year</strong> by the registrar, not monthly. About RM 50–80 / year.</td>
-            <td>0</td>
-            <td>50–80 / year</td>
-            <td>50–80 / year</td>
+            <td>RM 0</td>
+            <td>RM 50–80 / year</td>
+            <td>RM 50–80 / year</td>
           </tr>
           <tr>
             <td><strong>Extra DevOps</strong> — extra staging, extra seats, monitoring. Not a retainer in this quote.</td>
-            <td>0</td>
-            <td>TBD</td>
-            <td>TBD</td>
+            <td>RM 0</td>
+            <td>TBD (RM)</td>
+            <td>TBD (RM)</td>
           </tr>
           <tr class="band">
-            <td>Discussion band / month (domain is separate, yearly)</td>
-            <td>0–70</td>
-            <td>150–290</td>
-            <td>400–850</td>
+            <td>Discussion band / month in RM (domain is separate, yearly)</td>
+            <td>RM 0–70</td>
+            <td>RM 150–290</td>
+            <td>RM 400–850</td>
           </tr>
         </tbody>
       </table>
@@ -614,27 +614,8 @@
         toast.classList.add("show");
         setTimeout(function () { toast.classList.remove("show"); }, 2200);
       }
-      function saveBlob(blob) {
-        var url = URL.createObjectURL(blob);
-        var a = document.createElement("a");
-        a.href = url;
-        a.download = "quotation-2026007.html";
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
-        flash("HTML downloaded");
-      }
       document.getElementById("btnPrint").addEventListener("click", function () {
         window.print();
-      });
-      document.getElementById("btnDownload").addEventListener("click", function () {
-        var boxes = document.querySelectorAll("input.mod");
-        for (var i = 0; i < boxes.length; i++) {
-          if (boxes[i].checked) boxes[i].setAttribute("checked", "checked");
-          else boxes[i].removeAttribute("checked");
-        }
-        saveBlob(new Blob(["<!DOCTYPE html>\n" + document.documentElement.outerHTML], { type: "text/html;charset=utf-8" }));
       });
     })();
   </script>
