@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quotation 2026007 — PM Assist Phase 1</title>
+  <meta name="description" content="Phase 1 quotation 2026007 for Kevin / Property Management Team. Build RM 100,000." />
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --muted: #555;
+      --line: #d8d8d8;
+      --paper: #f4f4f4;
+      --card: #fff;
+      --accent: #1d4ed8;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.45;
+      font-size: 15px;
+      overflow-wrap: anywhere;
+    }
+    .wrap {
+      width: min(860px, calc(100% - 24px));
+      margin: 16px auto 96px;
+    }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .hint { margin: 0; color: var(--muted); font-size: 13px; max-width: 52ch; }
+    .actions { display: flex; gap: 8px; }
+    button {
+      font: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 6px;
+      padding: 7px 12px;
+      cursor: pointer;
+    }
+    button.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .sheet {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 28px 32px 36px;
+      min-width: 0;
+      overflow-x: hidden;
+    }
+    h1 {
+      margin: 0 0 4px;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .meta {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 8px;
+      font-size: 14px;
+    }
+    .meta th, .meta td {
+      text-align: left;
+      padding: 4px 12px 4px 0;
+      vertical-align: top;
+    }
+    .meta th { color: var(--muted); font-weight: 500; width: 130px; }
+    .intro { margin: 12px 0 0; }
+    .note {
+      margin: 12px 0 0;
+      padding: 10px 12px;
+      background: #f7f7f7;
+      border-left: 3px solid var(--ink);
+    }
+    h2 {
+      margin: 28px 0 8px;
+      font-size: 16px;
+      font-weight: 700;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 4px;
+    }
+    p { margin: 0 0 10px; }
+    ol.toc { margin: 8px 0 0; padding-left: 22px; }
+    ol.toc li { margin: 2px 0; }
+    table.items, table.ops, table.pay, table.rbac, table.sum {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    table.items { table-layout: fixed; }
+    table.items th, table.items td,
+    table.ops th, table.ops td,
+    table.pay th, table.pay td,
+    table.rbac th, table.rbac td,
+    table.sum th, table.sum td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      vertical-align: top;
+      text-align: left;
+      overflow-wrap: anywhere;
+    }
+    table.items th, table.ops th, table.pay th, table.rbac th, table.sum th {
+      background: #f3f3f3;
+      font-weight: 700;
+    }
+    table.items .c-pick { width: 40px; text-align: center; }
+    table.items .c-no { width: 44px; text-align: center; }
+    table.items .c-price { width: 110px; text-align: right; white-space: nowrap; font-weight: 700; }
+    table.items tbody tr.off td { background: #fafafa; color: #888; }
+    table.items tbody tr.off .item-name,
+    table.items tbody tr.off .c-price { text-decoration: line-through; }
+    .mod { width: 16px; height: 16px; accent-color: var(--ink); cursor: pointer; }
+    .item-name { font-weight: 700; margin: 0 0 4px; overflow-wrap: anywhere; }
+    .amt-inline { display: none; font-weight: 700; }
+    .item-desc { margin: 0; color: #333; overflow-wrap: anywhere; }
+    .item-desc ul { margin: 6px 0 0; padding-left: 18px; }
+    .item-desc li { margin: 2px 0; }
+    .pair { display: block; margin-top: 6px; font-size: 12px; color: var(--muted); }
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      margin-left: 6px;
+      padding: 1px 6px;
+      border: 1px solid var(--ink);
+      vertical-align: middle;
+    }
+    .tag.later { border-color: var(--line); color: var(--muted); font-weight: 600; }
+    .ops td:nth-child(n+2), .ops th:nth-child(n+2),
+    .pay td:nth-child(n+2), .pay th:nth-child(n+2) { text-align: right; white-space: nowrap; }
+    .band td { font-weight: 700; background: #f3f3f3; }
+    ul.plain { margin: 6px 0 0; padding-left: 18px; }
+    ul.plain li { margin: 4px 0; }
+    .totals { margin-top: 16px; max-width: 360px; margin-left: auto; }
+    .sum .grand th, .sum .grand td { background: var(--ink); color: #fff; font-size: 15px; }
+    .sum td { text-align: right; font-weight: 600; }
+    .sign {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 36px;
+      font-size: 14px;
+    }
+    .sign .line { margin-top: 40px; border-top: 1px solid var(--ink); padding-top: 8px; }
+    .sign a { color: var(--accent); }
+    .foot { margin-top: 24px; color: #888; font-size: 12px; }
+    .sticky {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      background: var(--ink);
+      color: #fff;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      z-index: 20;
+    }
+    .sticky span { color: #ccc; font-size: 12px; }
+    .toast {
+      position: fixed;
+      bottom: 64px;
+      right: 16px;
+      background: #166534;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 30;
+    }
+    .toast.show { opacity: 1; }
+    @media (max-width: 700px) {
+      .sheet { padding: 18px 16px 28px; overflow-x: auto; }
+      .sign { grid-template-columns: 1fr; gap: 24px; }
+      .ops, .pay, .rbac { font-size: 12px; display: block; overflow-x: auto; }
+      table.items .c-price, table.items thead th.c-price { display: none; }
+      .amt-inline { display: block; margin: 2px 0 6px; }
+    }
+    @media print {
+      body { background: #fff; }
+      .toolbar, .sticky, .toast { display: none !important; }
+      .wrap { width: auto; margin: 0; }
+      .sheet { border: 0; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="toolbar no-print">
+      <p class="hint">Quotation 2026007 for Kevin. Download HTML, or print and choose Save as PDF.</p>
+      <div class="actions">
+        <button type="button" class="primary" id="btnDownload">Download HTML</button>
+        <button type="button" id="btnPrint">Print / Save as PDF</button>
+      </div>
+    </div>
+
+    <article class="sheet">
+      <h1>Quotation — PM Assist Phase 1</h1>
+      <p style="margin:0 0 4px;color:var(--muted);">Same scope as the proposal dated 13 August 2026.</p>
+
+      <table class="meta">
+        <tr><th>Quote no.</th><td><strong>2026007</strong></td></tr>
+        <tr><th>To</th><td>Kevin / Property Management Team</td></tr>
+        <tr><th>From</th><td>Leong Mun Hon</td></tr>
+        <tr><th>Date</th><td>18 September 2026</td></tr>
+        <tr><th>Valid until</th><td>18 October 2026</td></tr>
+        <tr><th>Currency</th><td>RM</td></tr>
+      </table>
+
+      <p class="intro">This quote is the Phase 1 <strong>build</strong> only. Items 1–4 are ticked as the <strong>MVP</strong>: publish approved SOPs, staff ask, answers show a source, then we design and hand over. Tick 5–7 only if you need them. If every item is ticked, Phase 1 is RM 100,000.</p>
+      <p class="note"><strong>How to read this page:</strong> tick the items in section 1 → check the total in section 2 → see what is extra in section 3 → payment in section 4.</p>
+
+      <ol class="toc">
+        <li>What you are buying</li>
+        <li>Total</li>
+        <li>Not in this price</li>
+        <li>Payment</li>
+        <li>How we would host it</li>
+        <li>What you need to provide</li>
+        <li>Next steps</li>
+      </ol>
+
+      <h2>1. What you are buying</h2>
+      <p>Sorted so you can ship an MVP first. <strong>Internal AI Chatbot and SOP Knowledge Base must be taken together</strong> — published SOP text is guarded; staff only get it by asking the chatbot, which does not guess.</p>
+      <p>MVP workflow: publish SOP → staff ask → cited answer. The AI only uses approved information. If it cannot find an answer, it tells staff to confirm with management. Documents &amp; OCR is not required for MVP — admin can type or paste SOP text.</p>
+
+      <table class="items">
+        <thead>
+          <tr>
+            <th class="c-pick">In</th>
+            <th class="c-no">No.</th>
+            <th>Item</th>
+            <th class="c-price">Amount (RM)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="c-pick"><input class="mod" type="checkbox" data-id="sop" data-price="14000" data-pack="guard" checked aria-label="Include SOP Knowledge Base" /></td>
+            <td class="c-no">1</td>
+            <td>
+              <p class="item-name">SOP Knowledge Base <span class="tag">MVP</span> <span class="amt-inline">RM 14,000</span></p>
+              <div class="item-desc">
+                <ul>
+                  <li>Create, categorise, version and publish SOPs (Renovation, Maintenance, Cleaning, Security, and so on).</li>
+                  <li>Unpublished text is not searchable. Dashboard flags SOPs due for review.</li>
+                </ul>
+              </div>
+              <span class="pair">Must include Internal AI Chatbot</span>
+            </td>
+            <td class="c-price">14,000</td>
+          </tr>
+          <tr>
+            <td class="c-pick"><input class="mod" type="checkbox" data-id="ai" data-price="18000" data-pack="guard" checked aria-label="Include Internal AI Chatbot" /></td>
+            <td class="c-no">2</td>
+            <td>
+              <p class="item-name">Internal AI Chatbot <span class="tag">MVP</span> <span class="amt-inline">RM 18,000</span></p>
+              <div class="item-desc">
+                <ul>
+                  <li>Staff ask in the web app and get a direct answer.</li>
+                  <li>Follow-up questions and searchable chat history.</li>
+                  <li>Mobile screens: Chat, SOP Library, Directory, Profile.</li>
+                  <li>Example: “Sunday can do renovation?”</li>
+                </ul>
+              </div>
+              <span class="pair">Taken together with SOP Knowledge Base</span>
+            </td>
+            <td class="c-price">18,000</td>
+          </tr>
+          <tr>
+            <td class="c-pick"><input class="mod" type="checkbox" data-id="src" data-price="8000" checked aria-label="Include Source Citation" /></td>
+            <td class="c-no">3</td>
+            <td>
+              <p class="item-name">Source Citation <span class="tag">MVP</span> <span class="amt-inline">RM 8,000</span></p>
+              <div class="item-desc">
+                <ul>
+                  <li>Every supported answer shows document, section and preview, with View original file.</li>
+                  <li>If there is no approved source, the AI does not guess.</li>
+                </ul>
+              </div>
+            </td>
+            <td class="c-price">8,000</td>
+          </tr>
+          <tr>
+            <td class="c-pick"><input class="mod" type="checkbox" data-id="del" data-price="14000" checked aria-label="Include Delivery" /></td>
+            <td class="c-no">4</td>
+            <td>
+              <p class="item-name">Delivery <span class="tag">MVP</span> <span class="amt-inline">RM 14,000</span></p>
+              <div class="item-desc">
+                <ul>
+                  <li>Design and UI (aligned to the approved proposal screens), development, UAT, deployment and handover of the ticked items.</li>
+                  <li>Responsive web for admin and staff. Not a native iOS / Android app.</li>
+                </ul>
+              </div>
+            </td>
+            <td class="c-price">14,000</td>
+          </tr>
+          <tr class="off">
+            <td class="c-pick"><input class="mod" type="checkbox" data-id="aud" data-price="12000" aria-label="Include Control and Audit" /></td>
+            <td class="c-no">5</td>
+            <td>
+              <p class="item-name">Control &amp; Audit <span class="tag later">After MVP</span> <span class="amt-inline">RM 12,000</span></p>
+              <div class="item-desc">
+                <ul>
+                  <li>Admin dashboard: questions, source rate, failed OCR, SOPs due for review, most-asked topics.</li>
+                  <li>Who asked, what the AI said, who published, who changed a vendor. Roles as below.</li>
+                </ul>
+              </div>
+              <table class="rbac">
+                <thead>
+                  <tr>
+                    <th>Capability</th>
+                    <th>Admin</th>
+                    <th>Manager</th>
+                    <th>Staff</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Upload / edit documents</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td>Approve / publish</td>
+                    <td>Yes</td>
+                    <td>—</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td>View assigned property</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                  </tr>
+                  <tr>
+                    <td>Ask AI assistant</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td class="c-price">12,000</td>
+          </tr>
+          <tr class="off">
+            <td class="c-pick"><input class="mod" type="checkbox" data-id="ops" data-price="12000" aria-label="Include Operational Directories" /></td>
+            <td class="c-no">6</td>
+            <td>
+              <p class="item-name">Operational Directories <span class="tag later">After MVP</span> <span class="amt-inline">RM 12,000</span></p>
+              <div class="item-desc">
+                <ul>
+                  <li>Properties (shared or restricted knowledge; active / archived), vendors, and staff records.</li>
+                  <li>Vendor types, service hours, emergency hotline. Staff: name, mobile, department, role, assigned property or portfolio.</li>
+                </ul>
+              </div>
+            </td>
+            <td class="c-price">12,000</td>
+          </tr>
+          <tr class="off">
+            <td class="c-pick"><input class="mod" type="checkbox" data-id="ocr" data-price="22000" aria-label="Include Documents and OCR" /></td>
+            <td class="c-no">7</td>
+            <td>
+              <p class="item-name">Documents &amp; OCR <span class="tag later">After MVP</span> <span class="amt-inline">RM 22,000</span></p>
+              <div class="item-desc">
+                <ul>
+                  <li>Not needed for MVP. Use this when SOPs arrive as scans or photos instead of typed text.</li>
+                  <li>Upload PDF, JPG, PNG, scans or photos. Extract, verify, then publish — never ingest blindly.</li>
+                  <li>Original file is always kept, linked to page. Replace and archive. States: Processing, Needs Review, Published, Failed OCR, Archived.</li>
+                </ul>
+              </div>
+            </td>
+            <td class="c-price">22,000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>2. Total</h2>
+      <p>Unticked lines are not in this total. Server, database, Google AI, storage, domain and running cost are not in this total.</p>
+      <div class="totals">
+        <table class="sum">
+          <tr>
+            <th>Selected items</th>
+            <td id="selCount">4 of 7</td>
+          </tr>
+          <tr>
+            <th>Future modules</th>
+            <td>Not quoted</td>
+          </tr>
+          <tr>
+            <th>Operating cost</th>
+            <td>Not included</td>
+          </tr>
+          <tr class="grand">
+            <th>Phase 1 total</th>
+            <td id="grandTotal">RM 54,000</td>
+          </tr>
+        </table>
+      </div>
+
+      <h2>3. Not in this price</h2>
+      <ul class="plain">
+        <li>Later modules: maintenance tickets, complaints, work orders, analytics.</li>
+        <li>Unticked items in section 1 (after MVP) are not in the total until you tick them.</li>
+        <li>Native iOS / Android apps. Announcements as a content module. Hai Kah Lang ERP or other third-party systems.</li>
+        <li>Monthly / yearly vendor bills below — you pay those vendors directly. Figures are for discussion (USD shown in RM at about 4.20), not a locked ops contract.</li>
+      </ul>
+      <p>Development and the first ~2 months live should be low use, so database and login stay on <strong>Supabase Free</strong>. Move to Pro when the live team depends on it, data goes past 500 MB, or you need daily backups and no pause.</p>
+      <table class="ops">
+        <thead>
+          <tr>
+            <th>Paid to vendors, not in RM 100,000</th>
+            <th>Development</th>
+            <th>First ~2 months</th>
+            <th>Steady go-live</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>App hosting</strong> — Vercel. Pro when the client domain is live.</td>
+            <td>0</td>
+            <td>85 / month</td>
+            <td>85 / month</td>
+          </tr>
+          <tr>
+            <td><strong>Database + login</strong> — Supabase Postgres and Auth. Free pauses after 1 week of no activity.</td>
+            <td>0 (Free)</td>
+            <td>0 (Free)</td>
+            <td>105 / month (Pro)</td>
+          </tr>
+          <tr>
+            <td><strong>File storage</strong> — Google Cloud Storage for SOP PDFs, scans and originals.</td>
+            <td>0–20</td>
+            <td>10–50 / month</td>
+            <td>10–50 / month</td>
+          </tr>
+          <tr>
+            <td><strong>Google AI</strong> — answers, document search, OCR pages.</td>
+            <td>0–50</td>
+            <td>50–150 / month</td>
+            <td>200–600 / month</td>
+          </tr>
+          <tr>
+            <td><strong>Domain</strong> — billed <strong>once a year</strong> by the registrar, not monthly. About RM 50–80 / year.</td>
+            <td>0</td>
+            <td>50–80 / year</td>
+            <td>50–80 / year</td>
+          </tr>
+          <tr>
+            <td><strong>Extra DevOps</strong> — extra staging, extra seats, monitoring. Not a retainer in this quote.</td>
+            <td>0</td>
+            <td>TBD</td>
+            <td>TBD</td>
+          </tr>
+          <tr class="band">
+            <td>Discussion band / month (domain is separate, yearly)</td>
+            <td>0–70</td>
+            <td>150–290</td>
+            <td>400–850</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="color:var(--muted);font-size:13px;margin-top:10px;">You hold the vendor accounts and spend caps. We help set them up at handover. Keep some staff activity each week so Supabase Free does not pause. Vercel Hobby is for development only, not a commercial custom domain.</p>
+
+      <h2>4. Payment</h2>
+      <p id="payLead">RM 54,000 is billed in three payments (30% / 40% / 30% of the selected total). Vendor operating cost is paid separately.</p>
+      <table class="pay">
+        <thead>
+          <tr>
+            <th>Stage</th>
+            <th>When</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. Design · 30%</td>
+            <td>When we begin design, after this quote is confirmed and kick-off is set.</td>
+            <td id="payDesign">RM 16,200</td>
+          </tr>
+          <tr>
+            <td>2. Implementation · 40%</td>
+            <td>When development starts, after design is locked.</td>
+            <td id="payImpl">RM 21,600</td>
+          </tr>
+          <tr>
+            <td>3. Final · 30%</td>
+            <td>On handover after UAT — live, source and access handed over.</td>
+            <td id="payFinal">RM 16,200</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>5. How we would host it</h2>
+      <p>Recommendation only — we can change this at kick-off. Suggested: one Next.js web app on Vercel, Supabase for database and staff login, Google Cloud Storage for files, Google Gemini for answers and document search. OCR billing applies only if Documents &amp; OCR is ticked. Domain is paid yearly to the registrar and pointed at Vercel.</p>
+      <p>We compared Google Cloud SQL. It has no always-free plan (only a 30-day test instance). We stay with Supabase so early use can be Free and login is included. A Cloudflare-only static site does not replace the backend; we can discuss it if you prefer Cloudflare.</p>
+
+      <h2>6. What you need to provide</h2>
+      <ul class="plain">
+        <li>First properties to go live, with assigned staff and roles.</li>
+        <li>Sample SOP text or searchable PDFs (scans only if Documents &amp; OCR is ticked) and, if needed, vendor contacts.</li>
+        <li>Who can upload, who can publish, who can only ask.</li>
+        <li>Vendor accounts we help set up: Vercel, Supabase, Google Cloud, domain.</li>
+      </ul>
+
+      <h2>7. Next steps</h2>
+      <ol class="plain" style="padding-left:22px;">
+        <li>Confirm this quote (ticked items, total, payment, hosting).</li>
+        <li>Kick-off: properties, roles, workflows, sample documents.</li>
+        <li>Begin design. Design payment (<span id="nextDesign">RM 16,200</span>) is due at this step.</li>
+      </ol>
+      <p style="color:var(--muted);font-size:13px;">Not in Phase 1: maintenance tickets, complaint management, contractor work orders, management analytics.</p>
+
+      <div class="sign">
+        <div>
+          <strong>Prepared by</strong>
+          <div class="line">
+            Leong Mun Hon<br />
+            <a href="mailto:munhonleong@gmail.com">munhonleong@gmail.com</a><br />
+            +6012-9850625<br />
+            18 September 2026
+          </div>
+        </div>
+        <div>
+          <strong>For the client</strong>
+          <div class="line">
+            Name / signature / date<br />
+            Kevin / Property Management Team
+          </div>
+        </div>
+      </div>
+
+      <p class="foot">Quote no. 2026007 · PM Assist Phase 1</p>
+    </article>
+  </div>
+
+  <div class="sticky no-print">
+    <div>
+      <span id="stickyNote">Quote 2026007 · 4 items selected</span><br />
+      <strong id="stickyTotal">RM 54,000</strong>
+    </div>
+    <div style="text-align:right">
+      <span>Valid until 18 October 2026</span><br />
+      <strong>Kevin / Property Management Team</strong>
+    </div>
+  </div>
+  <div class="toast no-print" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      var packing = false;
+      function money(n) {
+        return "RM " + n.toLocaleString("en-MY");
+      }
+      function syncGuard(source) {
+        if (packing) return;
+        packing = true;
+        var pack = document.querySelectorAll('input.mod[data-pack="guard"]');
+        for (var i = 0; i < pack.length; i++) pack[i].checked = source.checked;
+        packing = false;
+        flash(source.checked
+          ? "SOP Knowledge Base and AI Chatbot are taken together"
+          : "SOP Knowledge Base and AI Chatbot were both removed");
+      }
+      function tally() {
+        var boxes = document.querySelectorAll("input.mod");
+        var total = 0;
+        var n = 0;
+        for (var i = 0; i < boxes.length; i++) {
+          var row = boxes[i].closest("tr");
+          if (boxes[i].checked) {
+            total += parseInt(boxes[i].getAttribute("data-price"), 10);
+            n += 1;
+            row.classList.remove("off");
+          } else {
+            row.classList.add("off");
+          }
+        }
+        var design = Math.round(total * 0.3);
+        var impl = Math.round(total * 0.4);
+        var finalPay = total - design - impl;
+        document.getElementById("selCount").textContent = n + " of " + boxes.length;
+        document.getElementById("grandTotal").textContent = money(total);
+        document.getElementById("stickyTotal").textContent = money(total);
+        document.getElementById("stickyNote").textContent = "Quote 2026007 · " + n + " item" + (n === 1 ? "" : "s") + " selected";
+        document.getElementById("payDesign").textContent = money(design);
+        document.getElementById("payImpl").textContent = money(impl);
+        document.getElementById("payFinal").textContent = money(finalPay);
+        document.getElementById("payLead").innerHTML = money(total) + " is billed in three payments (30% / 40% / 30% of the selected total). Vendor operating cost is paid separately.";
+        document.getElementById("nextDesign").textContent = money(design);
+      }
+      var mods = document.querySelectorAll("input.mod");
+      for (var m = 0; m < mods.length; m++) {
+        mods[m].addEventListener("change", function () {
+          if (this.getAttribute("data-pack") === "guard") syncGuard(this);
+          tally();
+        });
+      }
+      tally();
+      var toast = document.getElementById("toast");
+      function flash(msg) {
+        toast.textContent = msg;
+        toast.classList.add("show");
+        setTimeout(function () { toast.classList.remove("show"); }, 2200);
+      }
+      function saveBlob(blob) {
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = "quotation-2026007.html";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+        flash("HTML downloaded");
+      }
+      document.getElementById("btnPrint").addEventListener("click", function () {
+        window.print();
+      });
+      document.getElementById("btnDownload").addEventListener("click", function () {
+        var boxes = document.querySelectorAll("input.mod");
+        for (var i = 0; i < boxes.length; i++) {
+          if (boxes[i].checked) boxes[i].setAttribute("checked", "checked");
+          else boxes[i].removeAttribute("checked");
+        }
+        saveBlob(new Blob(["<!DOCTYPE html>\n" + document.documentElement.outerHTML], { type: "text/html;charset=utf-8" }));
+      });
+    })();
+  </script>
+</body>
+</html>
